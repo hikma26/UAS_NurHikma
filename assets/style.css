@@ -1,0 +1,383 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff0f0 0%, #ffe5e5 100%);
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header-main {
+  background: linear-gradient(135deg, #8B0000 0%, #b71c1c 100%);
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.brand-logo span {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Marquee */
+.marquee-container {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  color: #856404;
+  font-weight: 500;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Main Container */
+.container-main {
+  flex: 1;
+  padding: 30px 20px;
+  max-width: 1200px;
+}
+
+/* Welcome Section */
+.welcome h5 {
+  color: #8B0000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Stats Section */
+.stats-section {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.stats-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #8B0000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 28px;
+  color: #8B0000;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #8B0000;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Blood Stock */
+.blood-stock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.blood-item {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 25px;
+  text-align: center;
+  min-width: 100px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  transition: all 0.3s ease;
+}
+
+.blood-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+}
+
+.blood-type {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.blood-count {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.card-menu {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8B0000, #dc3545);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card-menu:hover::before {
+  transform: scaleX(1);
+}
+
+.card-menu:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-menu h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 15px 0 10px 0;
+  color: #8B0000;
+}
+
+.card-menu p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.card-menu .icon {
+  font-size: 32px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.bg-green { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+.bg-orange { background: linear-gradient(135deg, #fd7e14 0%, #ffc107 100%); }
+.bg-blue { background: linear-gradient(135deg, #007bff 0%, #17a2b8 100%); }
+.bg-purple { background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%); }
+
+/* Testimonials */
+.testimonials-section {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.testimonials-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #8B0000;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-radius: 15px;
+  padding: 20px;
+  border-left: 4px solid #8B0000;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #8B0000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.testimonial-info h6 {
+  margin: 0;
+  color: #8B0000;
+  font-weight: 600;
+}
+
+.testimonial-info small {
+  color: #666;
+}
+
+/* Footer */
+.footer-main {
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-main {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .brand-logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blood-stock {
+    justify-content: center;
+  }
+}
+
+.bg-icon-1 { background-color: #8B0000; }
+.bg-icon-2 { background-color: #a52a2a; }
+.bg-icon-3 { background-color: #b22222; }
+.bg-icon-4 { background-color: #800000; }
+.bg-icon-5 { background-color: #993333; }
+.bg-icon-6 { background-color: #660000; }
