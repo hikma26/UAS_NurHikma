@@ -424,6 +424,75 @@ Database terdiri dari **8 tabel utama** yang saling berelasi:
 - Event dapat dibatalkan jika pendaftar kurang dari minimum
 
 ---
+# Entity Relationship Diagram (ERD)  
+**Sistem Informasi Donor Darah Kabupaten Mamuju Tengah**
+
+## 📌 Tujuan ERD
+Entity Relationship Diagram (ERD) digunakan untuk menggambarkan struktur data dan hubungan antar entitas dalam sistem donor darah. Diagram ini menjadi dasar dalam merancang database relasional yang efisien dan terstruktur.
+
+## 📊 Deskripsi Entitas Utama
+
+Berikut ini adalah entitas yang terlibat dalam sistem:
+
+1. **Users**
+   - Menyimpan informasi akun pengguna dan admin.
+   - Atribut: `id`, `name`, `email`, `password`, `role_id`, `created_at`.
+
+2. **Roles**
+   - Menyimpan peran (user/admin).
+   - Atribut: `id`, `role_name`.
+
+3. **Donors**
+   - Data pendonor yang telah mendaftar.
+   - Atribut: `id`, `user_id`, `full_name`, `gender`, `birth_date`, `blood_type_id`, `location_id`, `phone`, `status`, `created_at`.
+
+4. **Requests**
+   - Permintaan darah oleh rumah sakit atau individu.
+   - Atribut: `id`, `requested_by`, `blood_type_id`, `location_id`, `quantity`, `status_id`, `created_at`.
+
+5. **Matches**
+   - Mencatat pencocokan antara pendonor dan permintaan.
+   - Atribut: `id`, `donor_id`, `request_id`, `matched_at`.
+
+6. **Blood_Types**
+   - Menyimpan data golongan darah (A, B, AB, O).
+   - Atribut: `id`, `type`.
+
+7. **Locations**
+   - Data lokasi/kecamatan/kabupaten pengguna dan pendonor.
+   - Atribut: `id`, `location_name`.
+
+8. **Statuses**
+   - Status dari permintaan darah.
+   - Atribut: `id`, `status_name`.
+
+9. **Logs**
+   - Catatan aktivitas penting dalam sistem.
+   - Atribut: `id`, `user_id`, `activity`, `timestamp`.
+
+10. **Settings**
+    - Konfigurasi sistem.
+    - Atribut: `id`, `setting_name`, `setting_value`.
+
+## 🔗 Relasi Utama
+- `Users` → `Roles`: many-to-one.
+- `Donors` → `Users`: many-to-one.
+- `Donors` → `Blood_Types`: many-to-one.
+- `Donors` → `Locations`: many-to-one.
+- `Requests` → `Blood_Types`, `Locations`, `Statuses`: many-to-one.
+- `Matches` → `Donors`, `Requests`: many-to-one.
+- `Logs` → `Users`: many-to-one.
+
+## 🖼️ Visual ERD
+Silakan lihat diagram ERD pada gambar berikut:  
+<img width="984" height="1496" alt="image" src="https://github.com/user-attachments/assets/7ae93fa1-c5f3-499c-b3ff-c5deb5ee0699" />
+
+*(Gambar ini merupakan hasil desain ERD sistem secara keseluruhan)*
+
+## ✅ Kesimpulan
+ERD ini menjadi kerangka kerja penting dalam pengembangan sistem informasi donor darah. Struktur yang baik akan memudahkan implementasi fitur serta menjaga integritas data dalam sistem.
+
+
 
 ## 📊 Views dan Stored Procedures
 
