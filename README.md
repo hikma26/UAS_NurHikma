@@ -107,7 +107,6 @@ sistem-donor-darah/
 
 ## 📚 Dokumentasi Lengkap
 
-- 📖 [Panduan Instalasi](docs/INSTALLATION.md)
   # Instalasi Sistem Donor Darah
 
 Proses instalasi untuk Sistem Donor Darah Kabupaten Mamuju Tengah:
@@ -173,8 +172,6 @@ Proses instalasi untuk Sistem Donor Darah Kabupaten Mamuju Tengah:
 Proyek siap digunakan! Jika ada pertanyaan silakan cek dokumentasi penggunaan atau hubungi pengembang.
 
 ---
-
-- 🗄️ [Dokumentasi Database](docs/DATABASE.md)
   # Dokumentasi Database - Sistem Donor Darah Kabupaten Mamuju Tengah
 
 ## 🗄️ Overview Database
