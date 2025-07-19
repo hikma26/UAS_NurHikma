@@ -189,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 
 -- Insert admin dan petugas (password: password)
 INSERT INTO `users` (`username`, `password`, `email`, `full_name`, `role`, `is_active`) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@donor.com', 'Administrator Sistem', 'admin', 1),
-('petugas', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'petugas@donor.com', 'Petugas PMI', 'petugas', 1);
+('admin', '$2a$12$s9jAA02c/Kt1ZmSK5OZ6V.v8B.WUOBpuSh.hdzP/1dxIkJLXR62jm', 'admin@donor.com', 'Administrator Sistem', 'admin', 1),
+('petugas', '$2a$12$s9jAA02c/Kt1ZmSK5OZ6V.v8B.WUOBpuSh.hdzP/1dxIkJLXR62jm', 'petugas@donor.com', 'Petugas PMI', 'user', 1);
 
 -- Insert stok darah awal
 INSERT INTO `blood_stock` (`blood_type`, `rhesus`, `quantity`, `min_stock`) VALUES

@@ -79,25 +79,85 @@ if (isset($_GET['edit'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            padding-top: 1.5rem;
+        }
+        
+        .main-container {
+            margin-left: 100px; /* Space for admin toggle button */
+            margin-right: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                margin-top: 1rem;
+            }
         }
         .card {
             border: none;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            border-radius: 0.375rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
         .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             color: white;
             border-bottom: none;
+            border-radius: 16px 16px 0 0;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: translate(30%, -30%);
+        }
+        
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             border: none;
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
+        
         .btn-primary:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
+        }
+        
+        .page-title {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .notification-preview {
             border: 1px solid #dee2e6;
@@ -134,19 +194,20 @@ if (isset($_GET['edit'])) {
     </style>
 </head>
 <body>
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="h3 mb-0">
-                        <i class="fas fa-bell me-2"></i>
-                        Kelola Notifikasi
-                    </h1>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNotificationModal">
-                        <i class="fas fa-plus me-2"></i>
-                        Tambah Notifikasi
-                    </button>
-                </div>
+    <div class="main-container">
+        <div class="container-fluid py-2">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <h1 class="page-title">
+                            <i class="fas fa-bell-ring me-3" style="color: #dc2626;"></i>
+                            Kelola Notifikasi
+                        </h1>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNotificationModal">
+                            <i class="fas fa-plus me-2"></i>
+                            Tambah Notifikasi
+                        </button>
+                    </div>
 
                 <?php if (isset($success_message)): ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

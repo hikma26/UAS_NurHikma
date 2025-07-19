@@ -88,24 +88,35 @@ $testimonials = [
   <link href="../../assets/style.css" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff0f0 0%, #ffe5e5 100%);
-      color: #333;
-      margin: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      margin: 0;
+      color: #2c3e50;
     }
 
     /* Header */
     .header-main {
-      background: linear-gradient(135deg, #8B0000 0%, #b71c1c 100%);
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
       color: #fff;
-      padding: 15px 30px;
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: translate(30%, -30%);
     }
 
     .brand-logo {
@@ -115,8 +126,14 @@ $testimonials = [
     }
 
     .brand-logo img {
-      height: 40px;
+      height: 60px;
       width: auto;
+      filter: brightness(1.1);
+      transition: all 0.3s ease;
+    }
+    
+    .brand-logo:hover img {
+      transform: scale(1.05) rotate(3deg);
     }
 
     .brand-logo span {
@@ -194,18 +211,30 @@ $testimonials = [
 
     /* Stats Section */
     .stats-section {
-      background: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .stats-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .stats-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #8B0000;
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
 
@@ -217,30 +246,42 @@ $testimonials = [
     }
 
     .stat-card {
-      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-      border-radius: 15px;
-      padding: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 16px;
+      padding: 2rem;
       text-align: center;
-      border: 1px solid #e9ecef;
-      transition: all 0.3s ease;
+      border-left: 4px solid #dc2626;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
 
     .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+      border-left-color: #b91c1c;
     }
 
     .stat-icon {
-      font-size: 28px;
-      color: #8B0000;
-      margin-bottom: 10px;
+      font-size: 2rem;
+      color: #dc2626;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover .stat-icon {
+      transform: scale(1.2) rotate(5deg);
     }
 
     .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #8B0000;
-      margin-bottom: 5px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #dc2626;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .stat-label {
@@ -479,7 +520,7 @@ $testimonials = [
 
 <header class="header-main">
   <div class="brand-logo">
-    <img src="../../assets/logo-mateng.png" alt="Logo Mamuju Tengah">
+    <img src="../assets/logo-mateng.png" alt="Logo Mamuju Tengah">
     <span>Sistem Donor Darah - Kab. Mamuju Tengah</span>
   </div>
   <a href="../logout.php" class="btn-logout">

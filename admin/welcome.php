@@ -37,82 +37,192 @@ $total_permintaan_count = mysqli_fetch_assoc($total_permintaan)['total'];
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f6f9;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      padding-top: 1.5rem;
       margin: 0;
-      padding: 20px;
       color: #2c3e50;
     }
-
-    .header-title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #dc3545;
-      border-left: 5px solid #dc3545;
-      padding-left: 15px;
-      margin-bottom: 25px;
+    
+    .main-container {
+      margin-left: 100px; /* Space for admin toggle button */
+      margin-right: 2rem;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+      }
+    }
+    
+    .page-title {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .institution {
-      font-size: 18px;
+      font-size: 1.1rem;
       color: #6c757d;
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
+      font-weight: 500;
     }
 
     .card-custom {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      padding: 25px;
-      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .card-custom h5 {
       font-weight: 600;
-      color: #dc3545;
-      margin-bottom: 20px;
+      color: #dc2626;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .table {
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
     }
 
     .table th {
-      background-color: #dc3545;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
       color: white;
       vertical-align: middle;
+      border: none;
+      font-weight: 600;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .table td {
+      vertical-align: middle;
+      padding: 0.875rem;
+      border-color: rgba(220, 38, 38, 0.1);
+    }
+    
+    .table tbody tr {
+      transition: all 0.3s ease;
+    }
+    
+    .table tbody tr:hover {
+      background: rgba(220, 38, 38, 0.05);
+      transform: scale(1.01);
     }
 
     .btn-sm i {
-      margin-right: 5px;
+      margin-right: 0.25rem;
     }
 
     .btn-danger {
-      background-color: #dc3545;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
       border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      color: white;
+    }
+    
+    .btn-danger:hover {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+      color: white;
     }
 
     .btn-primary {
-      background-color: #0d6efd;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
       border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      color: white;
     }
-
-    .btn:hover {
-      opacity: 0.9;
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      color: white;
     }
 
     @media (max-width: 768px) {
-      .header-title {
-        font-size: 20px;
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .institution {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- HEADER -->
-  <div class="mb-4">
-    <div class="header-title">Dashboard Admin</div>
-    <div class="institution">Sistem Donor Darah | Kabupaten Mamuju Tengah</div>
-  </div>
+<div class="main-container">
+  <div class="container-fluid py-2">
+    <div class="row">
+      <div class="col-12">
+        <!-- HEADER -->
+        <div class="mb-5">
+          <h1 class="page-title">
+            <i class="fas fa-chart-pie me-3" style="color: #dc2626;"></i>
+            Dashboard Admin
+          </h1>
+          <div class="institution">Sistem Donor Darah | Kabupaten Mamuju Tengah</div>
+        </div>
+        
+        <!-- Status Messages -->
+        <?php if (isset($_GET['status'])): ?>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            <?php if ($_GET['status'] == 'deleted'): ?>
+              Data berhasil dihapus!
+            <?php endif; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['error'])): ?>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <?php if ($_GET['error'] == 'delete_failed'): ?>
+              Gagal menghapus data!
+            <?php elseif ($_GET['error'] == 'no_id'): ?>
+              ID tidak valid!
+            <?php else: ?>
+              Terjadi kesalahan!
+            <?php endif; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <?php endif; ?>
 
   <!-- STOK DARAH -->
   <div class="card-custom">
@@ -183,8 +293,12 @@ $total_permintaan_count = mysqli_fetch_assoc($total_permintaan)['total'];
       </table>
     </div>
   </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
