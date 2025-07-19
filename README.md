@@ -549,8 +549,6 @@ WHERE status = 'completed' AND event_date < DATE_SUB(NOW(), INTERVAL 1 YEAR);
 - Monthly archive ke external storage
 
 ---
-
-**© 2024 Sistem Donor Darah Kabupaten Mamuju Tengah**
 *Database Documentation - Version 1.0*
 
 - 📝 [Panduan Penggunaan](docs/USAGE.md)
