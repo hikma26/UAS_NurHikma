@@ -492,6 +492,46 @@ Silakan lihat diagram ERD pada gambar berikut:
 ## ✅ Kesimpulan
 ERD ini menjadi kerangka kerja penting dalam pengembangan sistem informasi donor darah. Struktur yang baik akan memudahkan implementasi fitur serta menjaga integritas data dalam sistem.
 
+# 📋 Fitur CRUD Admin – Sistem Informasi Donor Darah
+
+## 🔐 Fitur CRUD Admin
+
+Admin memiliki akses penuh untuk melakukan operasi **Create, Read, Update, Delete (CRUD)** terhadap data berikut:
+
+- 👥 **Data Pengguna (users)**
+- 💉 **Data Pendonor (donors)**
+- 🩸 **Data Permintaan Darah (requests)**
+- 🗺️ **Data Lokasi (locations)**
+- 🧬 **Data Golongan Darah (blood_types)**
+- 🔄 **Status Permintaan (statuses)**
+- 🤝 **Pencocokan Donor (matches)**
+- 📜 **Log Aktivitas (logs)**
+- ⚙️ **Pengaturan Sistem (settings)**
+
+---
+
+## 📃 Fitur Tampilan Setiap Modul
+
+Setiap entitas di atas memiliki antarmuka pengelolaan data yang terdiri dari:
+
+- ✅ **Tambah Data Baru**  
+  Formulir input untuk menambahkan entitas baru ke dalam sistem.
+
+- ✏️ **Edit Data**  
+  Halaman untuk memperbarui data yang sudah ada.
+
+- ❌ **Hapus Data**  
+  Fitur untuk menghapus data yang tidak diperlukan lagi.
+
+- 📑 **Daftar Data (Tabel)**  
+  Tabel data yang rapi, responsif, dan interaktif, dengan dukungan:
+  - **Pencarian Data**
+  - **Pagination**
+  - **Desain Bootstrap untuk tampilan modern dan profesional**
+
+---
+
+> Semua modul CRUD ini dirancang agar mudah digunakan oleh admin dan mendukung pengembangan sistem donor darah yang efisien dan terstruktur.
 
 
 ## 📊 Views dan Stored Procedures
